@@ -2,23 +2,18 @@ package org.example;
 
 import java.util.Scanner;
 
-public class Questions {
+public class ReflectionController {
 
-
-    public void firstQuestions() {
+    public void startingQuestions() {
         Scanner scanner = new Scanner(System.in);
 
-        String bookName;
-        String numberOfChapter;
-        String goal;
-
         System.out.println("Jaka książkę zaczynasz czytać?");
-        bookName = scanner.nextLine();
+        String bookTitle = scanner.nextLine();
 
         System.out.println("Ile ta książka ma rozdziałów?");
-        numberOfChapter = scanner.nextLine();
+        int chapters = scanner.nextInt();
 
         System.out.println("Jaki problem chcesz rozwiązać czytając ta książa?");
-        goal = scanner.nextLine();
+        String goal = scanner.nextLine();
     }
 }
