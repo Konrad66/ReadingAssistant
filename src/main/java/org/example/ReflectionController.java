@@ -1,22 +1,56 @@
 package org.example;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ReflectionController {
 
     private InputReader inputReader = new InputReader();
+
+    //Pytania na start
     private String bookTitle;
     private int chapters;
     private String goal;
     private String goalStepBook;
-    private String goalStepChapter;
     private String known;
     private String unknown;
+
+    //Pytania do pierwszego rozdziału
+    private List<String> goalStepChapterList = new ArrayList<>();
     private String chapterEssence;
     private String justification;
     private String observations;
     private String readerQuestions;
 
+    //pytania po przeczytaniu książki
+    ////podsumowanie książki
+    private String importantThing;
+    private String mainMessage;
+    private String goalAnswer;
+    private String unanswered;
 
-    public void startingQuestions() {
+    ////wprowadzanie zmian
+    private String endGoal;
+    private String problemResolved;
+    private String motivated;
+
+    ////ocena książki
+    private String recommendAuthor;
+    private String recommendBook;
+
+
+    public void assistBookReading() {
+        System.out.println("Zaczynasz czytać książkę.");
+        startingQuestions();
+        for (int i = 0; i > chapters; i++) {
+            System.out.println("Jesteś na rozdziale nr: " + (i + 1));
+            oneChapter();
+        }
+        System.out.println("Skończyłeś czytać książkę.");
+        summaryBook();
+    }
+
+    private void startingQuestions() {
         System.out.println("Jaka książkę zaczynasz czytać?");
         bookTitle = inputReader.readLine();
 
@@ -39,7 +73,7 @@ public class ReflectionController {
     }
 
 
-    public void firstChapter() {
+    private void oneChapter() {
         System.out.println("Jaka jest główna myśl przeczytanego rozdziału? Co autor chciał przekazać?");
         chapterEssence = inputReader.readLine();
 
@@ -50,10 +84,15 @@ public class ReflectionController {
         observations = inputReader.readLine();
 
         System.out.println("Czy ten rozdział zainspirował Cię do wprowadzenia jakichś zmian?");
-        goalStepChapter = inputReader.readLine();
+        goalStepChapterList.add(inputReader.readLine());
 
         System.out.println("Jakie pytania nasuwa ten rozdział?");
         readerQuestions = inputReader.readLine();
+    }
+
+
+    private void summaryBook() {
+
     }
 
     @Override
@@ -63,7 +102,7 @@ public class ReflectionController {
                 ", chapters=" + chapters +
                 ", goal='" + goal + '\'' +
                 ", goalStepBook='" + goalStepBook + '\'' +
-                ", goalStepChapter='" + goalStepChapter + '\'' +
+                ", goalStepChapter='" + goalStepChapterList + '\'' +
                 ", known='" + known + '\'' +
                 ", unknown='" + unknown + '\'' +
                 ", chapterEssence='" + chapterEssence + '\'' +
