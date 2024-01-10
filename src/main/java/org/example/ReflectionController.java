@@ -48,6 +48,7 @@ public class ReflectionController {
         }
         System.out.println("Skończyłeś czytać książkę.");
         summaryBook();
+        makeChanges();
     }
 
     private void startingQuestions() {
@@ -92,15 +93,9 @@ public class ReflectionController {
 
 
     /*
-    ////wprowadzanie zmian
-    private String endGoal;
-    private String problemResolved;
-    private String motivated;
-
     ////ocena książki
     private String recommendAuthor;
     private String recommendBook;
-
      */
 
     private void summaryBook() {
@@ -115,6 +110,17 @@ public class ReflectionController {
 
         System.out.println("Czy jakieś pytanie zostało bez odpowiedzi? Uzasadnij.");
         unanswered = inputReader.readLine();
+    }
+
+    private void makeChanges(){
+        System.out.println("Czy ta książka zainspirowała Cię do wprowadzenia jakichś zmian?");
+        endGoal = inputReader.readLine();
+
+        System.out.println("Czy uważasz że ta książka była wystarczająca do rozwiązania twojego problemu?");
+        problemResolved = inputReader.readLine();
+
+        System.out.println("Jak bardzo czujesz się zmotywowany do wprowadzania zmian po przeczytaniu tej książki?");
+        motivated = inputReader.readLine();
     }
 
 
