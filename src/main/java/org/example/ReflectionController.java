@@ -17,10 +17,10 @@ public class ReflectionController {
 
     //Pytania do pierwszego rozdziału
     private List<String> goalStepChapterList = new ArrayList<>();
-    private String chapterEssence;
-    private String justification;
-    private String observations;
-    private String readerQuestions;
+    private List<String> chapterEssence = new ArrayList<>();
+    private List<String> justification = new ArrayList<>();
+    private List<String> observations = new ArrayList<>();
+    private List<String> readerQuestions = new ArrayList<>();
 
     //pytania po przeczytaniu książki
     ////podsumowanie książki
@@ -75,25 +75,49 @@ public class ReflectionController {
 
     private void oneChapter() {
         System.out.println("Jaka jest główna myśl przeczytanego rozdziału? Co autor chciał przekazać?");
-        chapterEssence = inputReader.readLine();
+        chapterEssence.add(inputReader.readLine());
 
         System.out.println("Uzasadnij, dlaczego jest to prawda lub nie.");
-        justification = inputReader.readLine();
+        justification.add(inputReader.readLine());
 
         System.out.println("Wypisz najważniejsze spostrzeżenia z tego rozdziału. Co zwróciło twoją uwagę?");
-        observations = inputReader.readLine();
+        observations.add(inputReader.readLine());
 
         System.out.println("Czy ten rozdział zainspirował Cię do wprowadzenia jakichś zmian?");
         goalStepChapterList.add(inputReader.readLine());
 
         System.out.println("Jakie pytania nasuwa ten rozdział?");
-        readerQuestions = inputReader.readLine();
+        readerQuestions.add(inputReader.readLine());
     }
 
+
+    /*
+    ////wprowadzanie zmian
+    private String endGoal;
+    private String problemResolved;
+    private String motivated;
+
+    ////ocena książki
+    private String recommendAuthor;
+    private String recommendBook;
+
+     */
 
     private void summaryBook() {
+        System.out.println("Jaka jest najważniejsza rzecz którą nauczyłeś się z tej książki?");
+        importantThing = inputReader.readLine();
 
+        System.out.println("Jak uważasz, jakie jest główne przesłanie przeczytanej książki?");
+        mainMessage = inputReader.readLine();
+
+        System.out.println("Czy odpowiedziałeś sobie na pytanie zadane na początku czytania książki? Uzasadnij.");
+        goalAnswer = inputReader.readLine();
+
+        System.out.println("Czy jakieś pytanie zostało bez odpowiedzi? Uzasadnij.");
+        unanswered = inputReader.readLine();
     }
+
+
 
     @Override
     public String toString() {
