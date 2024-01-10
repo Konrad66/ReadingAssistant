@@ -49,6 +49,7 @@ public class ReflectionController {
         System.out.println("Skończyłeś czytać książkę.");
         summaryBook();
         makeChanges();
+        bookRating();
     }
 
     private void startingQuestions() {
@@ -92,12 +93,6 @@ public class ReflectionController {
     }
 
 
-    /*
-    ////ocena książki
-    private String recommendAuthor;
-    private String recommendBook;
-     */
-
     private void summaryBook() {
         System.out.println("Jaka jest najważniejsza rzecz którą nauczyłeś się z tej książki?");
         importantThing = inputReader.readLine();
@@ -112,7 +107,7 @@ public class ReflectionController {
         unanswered = inputReader.readLine();
     }
 
-    private void makeChanges(){
+    private void makeChanges() {
         System.out.println("Czy ta książka zainspirowała Cię do wprowadzenia jakichś zmian?");
         endGoal = inputReader.readLine();
 
@@ -123,7 +118,13 @@ public class ReflectionController {
         motivated = inputReader.readLine();
     }
 
+    private void bookRating() {
+        System.out.println("Czy przeczytałbyś kolejną książkę tego autora? Uzasadnij.");
+        recommendAuthor = inputReader.readLine();
 
+        System.out.println("Czy polecasz tę książkę?");
+        recommendBook = inputReader.readLine();
+    }
 
     @Override
     public String toString() {
