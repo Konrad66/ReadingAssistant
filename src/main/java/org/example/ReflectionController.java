@@ -1,5 +1,7 @@
 package org.example;
 
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -141,11 +143,15 @@ public class ReflectionController {
         recommendBook = inputReader.readLine();
     }
 
-    //zapis odpowiedzi
     private void saveAnswers(){
-        System.out.println("Zapisuje odpowiedzi.");
+        try {
+            PrintWriter printWriter = new PrintWriter("savedAnswers.txt");
+            printWriter.println(chapters);
+            printWriter.close();
+        } catch (FileNotFoundException e){
+            System.out.println("Nie znaleziono lokalizacji.");
+        }
     }
-
 
     @Override
     public String toString() {
