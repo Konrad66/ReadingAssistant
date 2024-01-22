@@ -39,13 +39,27 @@ public class ReflectionController {
     private String recommendBook;
 
 
+
+
+
+
+
     public void assistBookReading() {
         System.out.println("Zaczynasz czytać książkę.");
         startingQuestions();
-        for (int i = 0; i > chapters; i++) {
+
+        System.out.println("Czy chcesz zapisać progres?");
+        String answer = inputReader.readLine();
+        if(answer.equals("koniec")){
+            saveAnswers();
+            return;
+        }
+
+        for (int i = 0; i < chapters; i++) {
             System.out.println("Jesteś na rozdziale nr: " + (i + 1));
             oneChapter();
         }
+
         System.out.println("Skończyłeś czytać książkę.");
         summaryBook();
         makeChanges();
@@ -53,15 +67,15 @@ public class ReflectionController {
     }
 
     private void startingQuestions() {
-        System.out.println("Jaka książkę zaczynasz czytać?");
+       /* System.out.println("Jaka książkę zaczynasz czytać?");
         bookTitle = inputReader.readLine();
 
         System.out.println("Jaki problem chcesz rozwiązać czytając ta książa?");
-        goal = inputReader.readLine();
+        goal = inputReader.readLine();*/
 
         System.out.println("Ile ta książka ma rozdziałów?");
         chapters = inputReader.readNumber();
-
+/*
         System.out.println("Co już wiesz o temacie który porusza ta książka?");
         known = inputReader.readLine();
 
@@ -72,8 +86,9 @@ public class ReflectionController {
         //chcemy aby użytkownik rozpisał jak osiągnie swój cel - np zmieni sposób odzywiania co pomoże schudnąć
         //TODO znaleźć nazwę na coś co jest krokiem do celu
         goalStepBook = inputReader.readLine();
-    }
 
+ */
+    }
 
     private void oneChapter() {
         System.out.println("Jaka jest główna myśl przeczytanego rozdziału? Co autor chciał przekazać?");
@@ -125,6 +140,12 @@ public class ReflectionController {
         System.out.println("Czy polecasz tę książkę?");
         recommendBook = inputReader.readLine();
     }
+
+    //zapis odpowiedzi
+    private void saveAnswers(){
+        System.out.println("Zapisuje odpowiedzi.");
+    }
+
 
     @Override
     public String toString() {
